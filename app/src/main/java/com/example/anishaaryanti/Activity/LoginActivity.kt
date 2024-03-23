@@ -24,5 +24,10 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.login.setOnClickListener {
+            val intent = Intent(this,HomeActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
