@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/inter_semibold"
-            android:text="Home"
+            android:text="Pahlawan Wanita"
             android:textAlignment="center"
             android:textSize="32sp"
             tools:ignore="HardcodedText" />
@@ -50,37 +50,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/L1"
-        android:padding="20dp"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/send"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_pahlawan"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:fontFamily="@font/inter_bold"
-            android:textAllCaps="false"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/btn_bg2"
-            android:layout_gravity="center"
-            android:textColor="#FFF"
-            android:textSize="20sp"
-            android:text="Send To"
-            tools:ignore="HardcodedText" />
-
-        <Button
-            android:id="@+id/open"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:fontFamily="@font/inter_bold"
-            android:textAllCaps="false"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/btn_bg2"
-            android:layout_gravity="center"
-            android:textColor="#FFF"
-            android:textSize="20sp"
-            android:text="Open Web"
-            tools:ignore="HardcodedText" />
-
+            android:layout_height="match_parent"
+            tools:listitem="@layout/pahlawan"
+            />
     </LinearLayout>
 
 </RelativeLayout>
