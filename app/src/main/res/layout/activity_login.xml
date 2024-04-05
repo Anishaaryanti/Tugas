@@ -93,7 +93,7 @@
             android:textAlignment="center"
             android:textSize="16sp"
             android:layout_marginBottom="10dp"
-            android:text="Forgotten Password?"
+            android:text="Forget Password?"
             tools:ignore="HardcodedText" />
 
         <TextView

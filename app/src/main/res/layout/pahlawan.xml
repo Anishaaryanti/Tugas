@@ -44,10 +44,10 @@
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:fontFamily="@font/inter"
-                android:text="Asal" />
+                android:text="Asal Daerah" />
+
         </LinearLayout>
 
     </LinearLayout>
-
 
 </androidx.cardview.widget.CardView>

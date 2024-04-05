@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.DetailActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/union" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/tv_nama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Andi Depu"
+            android:textSize="28dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_asal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="25dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Sulawesi Barat"
+            android:textColor="#000080"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_nama" />
+
+        <ImageView
+            android:id="@+id/iv_gambar"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/andii" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_asal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_biografi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:lineHeight="20dp"
+                    android:padding="10dp"
+                    android:textSize="18sp"
+                    android:text="Andi Depu adalah pahlawan wanita Indonesia yang berhasil mempertahankan Tinambung, Polewali Mandar, Sulawesi Barat dari penaklukan Belanda. Pada tahun 1942, ia mengibarkan bendera Merah Putih di awal kedatangan pasukan Jepang di Mandar. Berkat keberaniannya, ia mendapatkan anugerah Bintang Mahaputra Tingkat IV dari Presiden Soekarno. Lalu pada 10 November 2018, ia dianugerahi gelar Pahlawan Nasional Indonesia oleh Presiden Joko Widodo bersama dengan Abdurrahman Baswedan, Kasman Singodimedjo, Depati Amir, Sjam'un dan Pangeran Muhammad Noor."
+                    android:textAlignment="textStart" />
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_backD"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:elevation="10dp"
+        android:src="@drawable/back"
+        app:tint="#7A7171" />
+
+
+</RelativeLayout>
+
