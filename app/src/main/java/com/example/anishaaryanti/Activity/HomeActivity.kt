@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.anishaaryanti.Adapter.MyAdapter
 import com.example.anishaaryanti.R
 import com.example.anishaaryanti.data.ItemData
+import com.google.firebase.auth.FirebaseAuth
 
 
 class HomeActivity : AppCompatActivity() {
@@ -29,9 +30,12 @@ class HomeActivity : AppCompatActivity() {
 
         back = findViewById(R.id.iv_backH)
 
+
+
         back.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+           FirebaseAuth.getInstance().signOut()
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
         }
 
         gambar = arrayOf(

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "311256205948",
+    "project_id": "tugasmc-37904",
+    "storage_bucket": "tugasmc-37904.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:311256205948:android:17f40e7c275fc4adcf97f9",
+        "android_client_info": {
+          "package_name": "com.example.anishaaryanti"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwQ9jumPT87cHCUlAnTp0-DHb7226ZxW4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
