@@ -51,26 +51,30 @@ class RegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            registerUser(email,password)
+            registerUser(email, password)
 
         }
 
         binding.tvLogin.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
+            finish()
         }
     }
 
     private fun registerUser(email: String, password: String) {
-        firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
-            if (it.isSuccessful) {
-                Intent(this, HomeActivity::class.java).also {
-                    it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    startActivity(it)
+        firebaseAuth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener { login ->
+                if (login.isSuccessful) {
+                    Intent(this, LoginActivity::class.java).also { berhasil ->
+                        berhasil.flags =
+                            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        startActivity(berhasil)
+                        finish()
+                    }
+                } else {
+                    Toast.makeText(this, login.exception?.message, Toast.LENGTH_SHORT).show()
                 }
-            } else {
-                Toast.makeText(this, it.exception?.message, Toast.LENGTH_SHORT).show()
             }
-        }
     }
 
     override fun onStart() {

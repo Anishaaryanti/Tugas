@@ -6,31 +6,30 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.anishaaryanti.R
+import com.example.anishaaryanti.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {
 
     private lateinit var back : ImageView
+    private lateinit var binding : ActivityDetailBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail)
+        binding = ActivityDetailBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         back = findViewById(R.id.iv_backD)
 
-        val gambar : ImageView = findViewById(R.id.iv_gambar)
-        val nama : TextView = findViewById(R.id.tv_nama)
-        val asal : TextView = findViewById(R.id.tv_asal)
-        val biografi : TextView = findViewById(R.id.tv_biografi)
+        val intent = intent
+        val nama = intent.getStringExtra("nama")
+        val asal = intent.getStringExtra("asal")
+        val biografi = intent.getStringExtra("biografi")
+        val gambar = intent.getStringExtra("gambar")
 
-        val bundle: Bundle?= intent.extras
-        val bNama = bundle !!.getString("idnama")
-        val bGambar = bundle .getInt("idgambar")
-        val bAsal = bundle .getString("idAsal")
-        val bBiografi = bundle .getString("idbiografi")
-
-        gambar.setImageResource(bGambar)
-        nama.text = bNama
-        asal.text = bAsal
-        biografi.text = bBiografi
+        binding.ivGambar.loadImage(gambar)
+        binding.tvNama.text = nama
+        binding.tvAsal.text = asal
+        binding.tvBiografi.text = biografi
 
         back.setOnClickListener {
             val intent = Intent(this,HomeActivity::class.java)

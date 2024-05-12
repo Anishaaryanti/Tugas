@@ -1,7 +1,13 @@
 package com.example.anishaaryanti.data
 
+import com.google.firebase.database.Exclude
+
 data class ItemData(
-    val gambar : Int,
-    val nama : String,
-    val asal : String,
-    val biografi : String)
+    val gambar : String? = null,
+    val nama : String? = null,
+    val asal : String? = null,
+    val biografi : String? = null,
+    @get:Exclude
+    @set:Exclude
+    var key: String? = null
+)
