@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.media.Image
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
@@ -27,6 +29,7 @@ class HomeActivity : AppCompatActivity() {
 
     private lateinit var pahlawanRecyclerView: RecyclerView
     private lateinit var back: ImageView
+    private lateinit var auth: FirebaseAuth
 
     private lateinit var listPahlawan: MutableList<ItemData>
     private lateinit var pahlawanAdapter: MyAdapter
@@ -39,17 +42,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_home)
-
-        back = findViewById(R.id.iv_backH)
-
-        back.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
-        }
-
-//
+        setContentView(binding.root)
 
         pahlawanRecyclerView = findViewById(R.id.rv_pahlawan)
         pahlawanRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -59,10 +52,11 @@ class HomeActivity : AppCompatActivity() {
         pahlawanAdapter = MyAdapter(this@HomeActivity, listPahlawan)
         pahlawanRecyclerView.adapter = pahlawanAdapter
 
+        auth = FirebaseAuth.getInstance()
         mStorage = FirebaseStorage.getInstance()
         mDatabaseref = FirebaseDatabase.getInstance().getReference("Pahlawan")
 
-        mDBListener = mDatabaseref!!.addValueEventListener(object : ValueEventListener{
+        mDBListener = mDatabaseref!!.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 Toast.makeText(this@HomeActivity, error.message, Toast.LENGTH_SHORT).show()
                 binding.myDataLoaderProgressBar.visibility = View.INVISIBLE
@@ -80,6 +74,34 @@ class HomeActivity : AppCompatActivity() {
                 binding.myDataLoaderProgressBar.visibility = View.GONE
             }
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_option, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.setting -> {
+                Toast.makeText(this, "Setting click", Toast.LENGTH_SHORT).show()
+                true
+            }
+
+            R.id.profile -> {
+                Toast.makeText(this, "Profile click", Toast.LENGTH_SHORT).show()
+                true
+            }
+
+            R.id.logout -> {
+                auth.signOut()
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }
 
